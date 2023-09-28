@@ -29,7 +29,7 @@ export default {
 <template>
   <div class="container p-2 bg-dark">
     <form action="" @submit.prevent="store.fetchMovie">
-      <input type="text" v-model="store.query" placeholder="Type here the title you are looking for">
+      <input type="text" v-model="store.query" placeholder="Type title">
       <button type="submit">
         Search
       </button>
