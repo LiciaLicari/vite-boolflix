@@ -13,7 +13,7 @@ export default {
   },
 
   mounted() {
-    this.store.fetchMovie(this.store.baseURL);
+    this.store.fetchMovie();
   },
   methods: {
     getRate(rate) {

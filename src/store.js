@@ -6,9 +6,11 @@ export const store = reactive({
     querySpan: '',
     movieList: null,
 
-    fetchMovie(url) {
+    fetchMovie() {
         axios
-            .get(url)
+            .get(this.baseURL, {params: {
+                query: this.query
+            }})
             .then(response => {
                 //console.log('response...', response);
                 this.querySpan = this.query;
