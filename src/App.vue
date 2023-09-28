@@ -14,6 +14,12 @@ export default {
 
   mounted() {
     this.store.fetchMovie(this.store.baseURL);
+  },
+  methods: {
+    getRate(rate) {
+      const rate1to5 = Math.round(rate / 2);
+      return rate1to5;
+    }
   }
 
 
@@ -21,19 +27,20 @@ export default {
 </script>
 
 <template>
-  <div class="container p-2">
-    <div class="d-flex align-items-center justify-content-center" @submit.prevent="store.fetchMovie">
-      <input type="text" v-model="store.query" class="form-control" placeholder="Type here the title you are looking for">
-      <button class="ms-3 btn btn-primary @click.prevent="
-        placeholder="Type the title you are looking for">Search</button>
-    </div>
+  <div class="container p-2 bg-dark">
+    <form action="" @submit.prevent="store.fetchMovie">
+      <input type="text" v-model="store.query" placeholder="Type here the title you are looking for">
+      <button type="submit">
+        Search
+      </button>
+    </form>
     <div class="row">
       <div class="col-3">
         <div class="card" v-for="movie in store.movieList">
           <p>original title : {{ movie.original_title }}</p>
           <p>title : {{ movie.title }}</p>
           <p>language : {{ movie.original_language }}</p>
-          <p>rate : {{ movie.vote_average }}</p>
+          <p>rate : {{ movie.rate_average }}</p>
         </div>
       </div>
     </div>
