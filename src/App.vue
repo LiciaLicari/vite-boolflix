@@ -40,7 +40,7 @@ export default {
           <p>original title : {{ movie.original_title }}</p>
           <p>title : {{ movie.title }}</p>
           <p>language : {{ movie.original_language }}</p>
-          <p>rate : {{ getRate(movie.vote_average) }}</p>
+
 
           <div v-for="star in (getRate(show.vote_average))"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
