@@ -1,2 +1,22 @@
 @use 'bootstrap';
 
+.card{
+    position: relative;
+}
+
+.card-body{
+    
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.card:hover .card-body{
+    background-color: rgba(95, 158, 160, 0.506);
+    border: 1px solid red;
+    display: block;
+        top: 0;
+        left: 0;
+}
