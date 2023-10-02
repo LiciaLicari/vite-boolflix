@@ -3,10 +3,12 @@ import { reactive } from "vue";
 export const store = reactive({
     baseURL: 'https://api.themoviedb.org/3/search/movie?api_key=2110a6167040b5168cc3ef4a80d12b25',
     tv_url: 'https://api.themoviedb.org/3/search/tv?api_key=e10a79c4628cb2c1d4e74a07721be7c3&language=it_IT&query=',
+    posterBaseUrl: 'https://image.tmdb.org/t/p/',
     query: '',
     querySpan: '',
     movieList: [],
     tvSerieList: [],
+    apiKey: '2110a6167040b5168cc3ef4a80d12b25',//personal
 
     fetchMovie() {
         axios
