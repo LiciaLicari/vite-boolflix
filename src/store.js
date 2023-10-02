@@ -4,7 +4,7 @@ export const store = reactive({
     baseURL: 'https://api.themoviedb.org/3/search/movie?api_key=2110a6167040b5168cc3ef4a80d12b25',
     query: '',
     querySpan: '',
-    movieList: null,
+    movieList: [],
 
     fetchMovie() {
         axios

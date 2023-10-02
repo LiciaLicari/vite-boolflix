@@ -8,7 +8,9 @@ export default {
 
   data() {
     return {
-      store
+      store,
+      languages: ['it', 'en', 'fr', 'de', 'es']
+
     }
   },
 
@@ -19,6 +21,12 @@ export default {
     getRate(rate) {
       const rate1to5 = Math.round(rate / 2);
       return rate1to5;
+    },
+    isFlag(lang){
+      if(this.languages.includes(lang)){
+        return true
+      }
+      return false
     }
   }
 
@@ -39,7 +47,9 @@ export default {
         <div class="card" v-for="movie in store.movieList">
           <p>original title : {{ movie.original_title }}</p>
           <p>title : {{ movie.title }}</p>
-          <p>language : {{ movie.original_language }}</p>
+          <!-- <p>language : {{ movie.original_language }}</p> -->
+          <img :src="`https://flagsapi.com/${movie.original_language.toUpperCase()}/flat/64.png`" :alt="movie.original_language">
+
           <div class="vote d-flex justify-content-center align-items-center gap-2">
             <p class="m-0">rate : </p>
             <div v-for="star in (getRate(movie.vote_average))">
