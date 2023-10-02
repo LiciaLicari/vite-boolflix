@@ -22,8 +22,8 @@ export default {
       const rate1to5 = Math.round(rate / 2);
       return rate1to5;
     },
-    isFlag(lang){
-      if(this.languages.includes(lang)){
+    isFlag(lang) {
+      if (this.languages.includes(lang)) {
         return true
       }
       return false
@@ -39,22 +39,34 @@ export default {
 </script>
 
 <template>
-  <div class="container p-2 bg-dark">
-    <form action="" @submit.prevent="store.fetchMovie">
-      <input type="text" v-model="store.query" placeholder="Type title">
-      <button type="submit">
-        Search
-      </button>
-    </form>
-    <div class="row">
-      <div class="col-3">
+  <div class="bg-dark">
+   
+
+
+    <header class="bg-dark p-2">
+      
+      <div class="logo m-3">
+        <img height="50" src="./assets/img/logo.png" alt="">
+
+      </div>
+
+      <form class="m-3" action="" @submit.prevent="store.fetchMovie">
+        <input type="text" v-model="store.query" placeholder="Type title">
+        <button type="submit">
+          Search
+        </button>
+      </form>
+    </header>
+    <div class="container bg-dark">
+      <div class="row row-cols-4 gap-1">
         <div class="card" v-for="movie in store.movieList">
           <img class="img-fluid h-100" v-if="movie.poster_path != null"
-              :src="posterGen(store.posterBaseUrl, movie.poster_path)" alt="">
+            :src="posterGen(store.posterBaseUrl, movie.poster_path)" alt="">
           <p>original title : {{ movie.original_title }}</p>
           <p>title : {{ movie.title }}</p>
           <!-- <p>language : {{ movie.original_language }}</p> -->
-          <img width="50" :src="`https://flagsapi.com/${movie.original_language.toUpperCase()}/flat/64.png`" :alt="movie.original_language">
+          <img width="50" :src="`https://flagsapi.com/${movie.original_language.toUpperCase()}/flat/64.png`"
+            :alt="movie.original_language">
 
           <div class="vote d-flex justify-content-center align-items-center gap-2">
             <p class="m-0">rate : </p>
@@ -81,13 +93,16 @@ export default {
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-3">
+
+    <div class="container bg-dark">
+      <div class="row row-cols-4 gap-1">
+
         <div class="card" v-for="tvSerie in store.tvSerieList">
           <p>original title : {{ tvSerie.original_name }}</p>
           <p>title : {{ tvSerie.name }}</p>
           <!-- <p>language : {{ tvSerie.original_language }}</p> -->
-          <img width="50" :src="`https://flagsapi.com/${tvSerie.original_language.toUpperCase()}/flat/64.png`" :alt="tvSerie.original_language">
+          <img width="50" :src="`https://flagsapi.com/${tvSerie.original_language.toUpperCase()}/flat/64.png`"
+            :alt="tvSerie.original_language">
 
           <div class="vote d-flex justify-content-center align-items-center gap-2">
             <p class="m-0">rate : </p>
@@ -110,6 +125,7 @@ export default {
 
 
         </div>
+
 
       </div>
     </div>
